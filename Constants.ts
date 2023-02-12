@@ -1,9 +1,11 @@
 export const COLORS = {
   accent: '#289256',
-  bg_grad_from: '#011f00',
+  bg_grad_from: '#1c2f21',
   bg_grad_to: '#000000',
   bg_card_from: '#32a763',
   bg_card_to: '#085a29',
+  bg_upcoming_from: '#232323',
+  bg_upcoming_to: '#111111',
   white: '#ffffff',
   black: '#000000',
   gray: '#9b9b9b',
