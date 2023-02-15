@@ -7,14 +7,14 @@ import {
   View,
 } from 'react-native';
 import {COLORS, SIZES} from '../../Constants';
-import {UseAuth} from '../UseAuth';
+import {useAuth} from '../utils/useAuth';
 
 const Header = () => {
-  const {user} = UseAuth();
+  const {user} = useAuth();
   return (
     <View
       style={{
-        marginTop: 60,
+        marginTop: 30,
         marginStart: 30,
         flexDirection: 'row',
         alignItems: 'center',

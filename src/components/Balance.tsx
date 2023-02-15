@@ -5,7 +5,7 @@ import {COLORS, SIZES} from '../../Constants';
 const Balance = () => {
   const card = {balance: 92510};
   return (
-    <View style={{marginStart: 10}}>
+    <View style={{marginStart: 20}}>
       <Text
         style={{
           color: COLORS.gray,

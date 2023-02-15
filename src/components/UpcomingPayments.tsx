@@ -5,7 +5,7 @@ import {COLORS, SIZES} from '../../Constants';
 
 const UpcomingPayments = () => {
   return (
-    <View style={{marginTop: 10, marginStart: 10, marginEnd: 10}}>
+    <View style={{marginTop: 10, marginStart: 20, marginEnd: 20}}>
       <Text style={{color: COLORS.gray, fontSize: 18}}>Upcoming payments</Text>
 
       {/* View для зарплаты и paypal  */}
@@ -17,15 +17,16 @@ const UpcomingPayments = () => {
         }}>
         {/*View для заплаты*/}
         <LinearGradient
-          style={{height: '100%', borderRadius: 35}}
+          style={{height: 200, width: 170, borderRadius: 35}}
           start={{x: 0, y: 0}}
           end={{x: 1, y: 0}}
-          colors={[COLORS.bg_upcoming_from, COLORS.bg_upcoming_to]}>
+          colors={[COLORS.dark_gray, COLORS.black]}>
           <View
             style={{
               borderRadius: 35,
               height: 100,
               alignItems: 'center',
+              marginTop: 30,
             }}>
             <Image
               source={require('../assets/salary.png')}
@@ -33,6 +34,7 @@ const UpcomingPayments = () => {
             />
             <Text
               style={{
+                paddingTop: 20,
                 color: COLORS.white,
                 fontWeight: 'bold',
                 fontSize: 18,
@@ -41,24 +43,36 @@ const UpcomingPayments = () => {
             </Text>
             <Text
               style={{
+                paddingTop: 5,
                 color: COLORS.gray,
                 fontSize: SIZES.h4,
               }}>
               Belong Interactive
             </Text>
+
+            <Text
+              style={{
+                color: COLORS.white,
+                fontSize: 18,
+                fontWeight: 'bold',
+                paddingTop: 15,
+              }}>
+              +2000$
+            </Text>
           </View>
         </LinearGradient>
         {/*View для paypal*/}
         <LinearGradient
-          style={{height: '100%', borderRadius: 35}}
+          style={{height: 200, width: 170, borderRadius: 35}}
           start={{x: 0, y: 0}}
           end={{x: 1, y: 0}}
-          colors={[COLORS.bg_upcoming_from, COLORS.bg_upcoming_to]}>
+          colors={[COLORS.dark_gray, COLORS.black]}>
           <View
             style={{
               borderRadius: 35,
               height: 100,
               alignItems: 'center',
+              marginTop: 30,
             }}>
             <Image
               source={require('../assets/paypal.png')}
@@ -66,6 +80,7 @@ const UpcomingPayments = () => {
             />
             <Text
               style={{
+                paddingTop: 20,
                 color: COLORS.white,
                 fontWeight: 'bold',
                 fontSize: 18,
@@ -74,10 +89,20 @@ const UpcomingPayments = () => {
             </Text>
             <Text
               style={{
+                paddingTop: 5,
                 color: COLORS.gray,
                 fontSize: SIZES.h4,
               }}>
               Freelance payments
+            </Text>
+            <Text
+              style={{
+                color: COLORS.white,
+                fontSize: 18,
+                fontWeight: 'bold',
+                paddingTop: 15,
+              }}>
+              +45,00$
             </Text>
           </View>
         </LinearGradient>

@@ -3,7 +3,8 @@ import {Image, Text, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {COLORS, SIZES} from '../../Constants';
 import adjust from '../common/functions';
-import {UseAuth} from '../UseAuth';
+import {useAuth} from '../utils/useAuth';
+
 const cards = [
   {
     id: '1',
@@ -29,15 +30,15 @@ const cards = [
 ];
 
 const Cards = () => {
-  const {user} = UseAuth();
+  const {user} = useAuth();
   return (
     <View
       style={{
         marginTop: 30,
         position: 'relative',
         height: 315,
-        marginStart: 10,
-        marginEnd: 10,
+        marginStart: 20,
+        marginEnd: 20,
         overflow: 'hidden',
       }}>
       {cards.map((card, idx) => {

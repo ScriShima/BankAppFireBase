@@ -4,10 +4,9 @@ export const COLORS = {
   bg_grad_to: '#000000',
   bg_card_from: '#32a763',
   bg_card_to: '#085a29',
-  bg_upcoming_from: '#232323',
-  bg_upcoming_to: '#111111',
   white: '#ffffff',
   black: '#000000',
+  dark_gray: '#1f1f1f',
   gray: '#9b9b9b',
 };
 
