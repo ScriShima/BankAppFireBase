@@ -1,6 +1,28 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import {getAuth, onAuthStateChanged, User} from 'firebase/auth';
+
+const auth = getAuth();
 
 export const useAuth = () => {
+  const [user, setUser] = useState<User>();
+
+  useEffect(() => {
+    const unsribeFromAuthStateChanged = onAuthStateChanged(auth, user => {
+      if (user) {
+        setUser(user);
+      } else {
+        setUser(undefined);
+      }
+    });
+
+    return unsribeFromAuthStateChanged;
+  }, []);
+  return {
+    user,
+  };
+};
+
+export const useAuthTest = () => {
   return {
     user: {
       _id: 'ewqeqewqeq',

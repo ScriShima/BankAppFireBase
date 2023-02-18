@@ -27,8 +27,8 @@ import Animated, {
 // lottie
 import Lottie from 'lottie-react-native';
 
-import PaymentInfoScreen from '../../src/pages/PaymentInfoScreen';
-import {COLORS} from '../../Constants';
+import PaymentInfoScreen from '../screens/PaymentInfoScreen';
+import {COLORS} from '../common/Constants';
 import LinearGradient from 'react-native-linear-gradient';
 
 // ------------------------------------------------------------------

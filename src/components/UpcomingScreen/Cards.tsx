@@ -1,9 +1,9 @@
 import React from 'react';
 import {Image, Text, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import {COLORS, SIZES} from '../../Constants';
-import adjust from '../common/functions';
-import {useAuth} from '../utils/useAuth';
+import {COLORS, SIZES} from '../../common/Constants';
+import adjust from '../../common/functions';
+import {useAuthTest} from '../../hooks/useAuth';
 
 const cards = [
   {
@@ -30,7 +30,7 @@ const cards = [
 ];
 
 const Cards = () => {
-  const {user} = useAuth();
+  const {user} = useAuthTest();
   return (
     <View
       style={{

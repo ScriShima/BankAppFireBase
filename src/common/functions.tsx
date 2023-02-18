@@ -1,4 +1,7 @@
+import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
+import PaymentInfoScreen from '../screens/PaymentInfoScreen';
+import WelcomeScreen from '../screens/WelcomeScreen';
 const adjust = (color: string, amount: number) => {
   return (
     '#' +
@@ -14,3 +17,11 @@ const adjust = (color: string, amount: number) => {
 };
 
 export default adjust;
+
+export const ScreensOptions = [
+  {
+    id: 1,
+    name: 'Welcome',
+    component: WelcomeScreen,
+  },
+];

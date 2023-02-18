@@ -6,11 +6,11 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {COLORS, SIZES} from '../../Constants';
-import {useAuth} from '../utils/useAuth';
+import {COLORS, SIZES} from '../../common/Constants';
+import {useAuthTest} from '../../hooks/useAuth';
 
 const Header = () => {
-  const {user} = useAuth();
+  const {user} = useAuthTest();
   return (
     <View
       style={{

@@ -1,11 +1,11 @@
 import React from 'react';
 import {View} from 'react-native';
-import Balance from '../../src/components/Balance';
-import Cards from '../../src/components/Cards';
-import Header from '../../src/components/Header';
+import Balance from '../components/UpcomingScreen/Balance';
+import Cards from '../components/UpcomingScreen/Cards';
+import Header from '../components/UpcomingScreen/Header';
 import LinearGradient from 'react-native-linear-gradient';
-import {COLORS} from '../../Constants';
-import UpcomingPayments from '../../src/components/UpcomingPayments';
+import {COLORS} from '../common/Constants';
+import UpcomingPayments from '../components/UpcomingScreen/UpcomingPayments';
 
 const PaymentInfoScreen = () => {
   return (

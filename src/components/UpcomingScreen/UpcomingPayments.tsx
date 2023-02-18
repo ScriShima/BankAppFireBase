@@ -1,7 +1,7 @@
 import React from 'react';
 import {Image, Text, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import {COLORS, SIZES} from '../../Constants';
+import {COLORS, SIZES} from '../../common/Constants';
 
 const UpcomingPayments = () => {
   return (
