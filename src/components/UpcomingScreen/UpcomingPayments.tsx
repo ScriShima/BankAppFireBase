@@ -29,7 +29,7 @@ const UpcomingPayments = () => {
               marginTop: 30,
             }}>
             <Image
-              source={require('../assets/salary.png')}
+              source={require('../../assets/salary.png')}
               style={{width: 30, height: 30}}
             />
             <Text
@@ -75,7 +75,7 @@ const UpcomingPayments = () => {
               marginTop: 30,
             }}>
             <Image
-              source={require('../assets/paypal.png')}
+              source={require('../../assets/paypal.png')}
               style={{width: 30, height: 30}}
             />
             <Text

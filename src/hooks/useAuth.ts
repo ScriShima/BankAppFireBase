@@ -3,11 +3,11 @@ import {getAuth, onAuthStateChanged, User} from 'firebase/auth';
 
 const auth = getAuth();
 
-export const useAuth = () => {
-  const [user, setUser] = useState<User>();
+export function useAuth() {
+  const [user, setUser] = React.useState<User>();
 
   useEffect(() => {
-    const unsribeFromAuthStateChanged = onAuthStateChanged(auth, user => {
+    const unsubscribeFromAuthStateChanged = onAuthStateChanged(auth, user => {
       if (user) {
         setUser(user);
       } else {
@@ -15,12 +15,13 @@ export const useAuth = () => {
       }
     });
 
-    return unsribeFromAuthStateChanged;
+    return unsubscribeFromAuthStateChanged;
   }, []);
+
   return {
     user,
   };
-};
+}
 
 export const useAuthTest = () => {
   return {
@@ -31,33 +32,3 @@ export const useAuthTest = () => {
     },
   };
 };
-
-// import {onAuthStateChanged} from 'firebase/auth';
-// import {useEffect, useMemo, useState} from 'react';
-// import {auth} from './firebase';
-
-// export const useAuth = () => {
-//   const [isLoggedIn, setIsLoggedIn] = useState(false);
-//   const [user, setUser] = useState({});
-
-//   useEffect(() => {
-//     const unSub = onAuthStateChanged(auth, user => {
-//       if (user) {
-//         setUser(user);
-//         setIsLoggedIn(true);
-//       } else {
-//         setIsLoggedIn(false);
-//         setUser({});
-//       }
-//     });
-
-//     return unSub();
-//   });
-
-//   const values = {
-//     user,
-//     isLoggedIn,
-//   };
-
-//   return useMemo(() => values, [values]);
-// };

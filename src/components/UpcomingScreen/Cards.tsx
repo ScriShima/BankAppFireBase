@@ -10,21 +10,21 @@ const cards = [
     id: '1',
     number: '1469 4000 3115 6495',
     type: 'Mastercards',
-    typeIncon: require('../assets/mastercard.png'),
+    typeIncon: require('../../assets/mastercard.png'),
     balance: 92510,
   },
   {
     id: '2',
     number: '2469 4000 3115 6495',
     type: 'Visa',
-    typeIncon: require('../assets/visa.png'),
+    typeIncon: require('../../assets/visa.png'),
     balance: 92510,
   },
   {
     id: '3',
     number: '3469 4000 3115 6495',
     type: 'Maestro',
-    typeIncon: require('../assets/maestro.png'),
+    typeIncon: require('../../assets/maestro.png'),
     balance: 92510,
   },
 ];
@@ -77,7 +77,7 @@ const Cards = () => {
                 borderRadius: 30,
               }}>
               <Image
-                source={require('../assets/image.png')}
+                source={require('../../assets/image.png')}
                 style={{width: 35, height: 35}}
               />
               <Text

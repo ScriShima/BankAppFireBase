@@ -30,6 +30,7 @@ import Lottie from 'lottie-react-native';
 import PaymentInfoScreen from '../screens/PaymentInfoScreen';
 import {COLORS} from '../common/Constants';
 import LinearGradient from 'react-native-linear-gradient';
+import WelcomeScreen from '../screens/WelcomeScreen';
 
 // ------------------------------------------------------------------
 
@@ -78,7 +79,7 @@ const TabBottom = () => {
                 />
               ),
             }}
-            component={PaymentInfoScreen}
+            component={WelcomeScreen}
           />
           <Tab.Screen
             name="Chat"

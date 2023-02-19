@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, View} from 'react-native';
-import {COLORS, SIZES} from '../../Constants';
+import {COLORS, SIZES} from '../../common/Constants';
 
 const Balance = () => {
   const card = {balance: 92510};

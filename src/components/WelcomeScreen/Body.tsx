@@ -7,15 +7,14 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {useNavigation} from '@react-navigation/native';
 import Tabs from '../../navigation/Tab';
 
-const Body = () => {
-  const navigation = useNavigation();
+const Body = ({navigation}: {navigation: any}) => {
   return (
     <View style={styles.container}>
       <View style={styles.viewCard}>
         <Pressable style={styles.Button}>
           <Text
             style={{color: COLORS.white, fontSize: SIZES.h2}}
-            onPress={() => {}}>
+            onPress={() => navigation.navigate('PaymentInfoScreen')}>
             Sign Up
           </Text>
         </Pressable>
