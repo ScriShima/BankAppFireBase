@@ -1,5 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import {getAuth, onAuthStateChanged, User} from 'firebase/auth';
+import {
+  collection,
+  getFirestore,
+  onSnapshot,
+  snapshotEqual,
+} from 'firebase/firestore';
 
 const auth = getAuth();
 
@@ -20,6 +26,7 @@ export function useAuth() {
 
   return {
     user,
+    setUser,
   };
 }
 

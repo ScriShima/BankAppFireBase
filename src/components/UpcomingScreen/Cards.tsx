@@ -1,36 +1,69 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Image, Text, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {COLORS, SIZES} from '../../common/Constants';
 import adjust from '../../common/functions';
-import {useAuthTest} from '../../hooks/useAuth';
+import {useAuth, useAuthTest} from '../../hooks/useAuth';
+import database from '@react-native-firebase/database';
+import {collection, onSnapshot, query, where} from 'firebase/firestore';
+import {db} from '../../config/firebase';
 
 const cards = [
   {
     id: '1',
     number: '1469 4000 3115 6495',
     type: 'Mastercards',
-    typeIncon: require('../../assets/mastercard.png'),
+    member: 'Guest',
+    typeIcon: require('../../assets/mastercard.png'),
     balance: 92510,
   },
   {
     id: '2',
     number: '2469 4000 3115 6495',
     type: 'Visa',
-    typeIncon: require('../../assets/visa.png'),
+    member: 'Guest',
+    typeIcon: require('../../assets/visa.png'),
     balance: 92510,
   },
   {
     id: '3',
     number: '3469 4000 3115 6495',
     type: 'Maestro',
-    typeIncon: require('../../assets/maestro.png'),
+    member: 'Guest',
+    typeIcon: require('../../assets/maestro.png'),
     balance: 92510,
   },
 ];
 
+// interface Card {
+//   id: string;
+//   number: string;
+//   type: string;
+//   typeIncon: any;
+//   balance: number;
+//   member: string;
+// }
+
 const Cards = () => {
-  const {user} = useAuthTest();
+  // const {user} = useAuth();
+  // const [cards, setCards] = useState<Card[]>([]);
+
+  // useEffect(() => {
+  //   if (user?.uid) {
+  //     const collectionRef = collection(db, 'cards');
+  //     const q = query(collectionRef, where('member', '==', user.uid));
+
+  //     const unSub = onSnapshot(q, snapshot => {
+  //       console.log(snapshot, 'wedf');
+  //       setCards(
+  //         snapshot.docs.map(doc => ({...doc.data(), id: doc.id} as Card)),
+  //       );
+  //     });
+
+  //     return unSub;
+  //   }
+  // }, [user?.uid]);
+
   return (
     <View
       style={{
@@ -114,14 +147,14 @@ const Cards = () => {
                       fontSize: 10,
                       fontWeight: 'bold',
                     }}>
-                    {user.name}
+                    {card.member}
                   </Text>
                 </View>
                 {idx === 0 && (
                   <View style={{alignItems: 'flex-end'}}>
                     <Image
                       style={{height: 65, width: 65}}
-                      source={card.typeIncon}
+                      source={card.typeIcon}
                     />
                     <Text style={{color: COLORS.white}}>{card.type}</Text>
                   </View>

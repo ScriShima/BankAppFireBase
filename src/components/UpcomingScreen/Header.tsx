@@ -7,10 +7,12 @@ import {
   View,
 } from 'react-native';
 import {COLORS, SIZES} from '../../common/Constants';
-import {useAuthTest} from '../../hooks/useAuth';
+import {useAuth, useAuthTest} from '../../hooks/useAuth';
 
 const Header = () => {
   const {user} = useAuthTest();
+
+  console.log();
   return (
     <View
       style={{
@@ -27,7 +29,7 @@ const Header = () => {
             fontSize: SIZES.h1,
             fontWeight: 'bold',
           }}>
-          Hi {user?.name}
+          Hi Guest
         </Text>
         <Text
           style={{
@@ -42,7 +44,7 @@ const Header = () => {
         <TouchableOpacity onPress={() => {}}>
           <View style={{marginEnd: 25}}>
             <Image
-              source={{uri: user?.avatar}}
+              source={{uri: user.avatar}}
               style={{width: 50, height: 50, borderRadius: 50}}
             />
           </View>

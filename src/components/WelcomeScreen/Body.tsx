@@ -1,23 +1,86 @@
-import React from 'react';
-import {View, Text, StyleSheet, Pressable} from 'react-native';
-import {BlurView} from '@react-native-community/blur';
+import React, {useState} from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Pressable,
+  ToastAndroid,
+  TouchableHighlight,
+  TouchableOpacity,
+  TextInput,
+} from 'react-native';
 import {COLORS, SIZES} from '../../common/Constants';
-import {color} from 'react-native-reanimated';
-import {StackNavigationProp} from '@react-navigation/stack';
-import {useNavigation} from '@react-navigation/native';
 import Tabs from '../../navigation/Tab';
+import {getAuth, signInWithEmailAndPassword} from 'firebase/auth';
+import {StackScreenProps} from '@react-navigation/stack';
+
+const auth = getAuth();
 
 const Body = ({navigation}: {navigation: any}) => {
+  const [value, setValue] = React.useState({
+    email: '',
+    password: '',
+    error: '',
+  });
+
+  async function signIn() {
+    if (value.email === '' || value.password === '') {
+      setValue({
+        ...value,
+        error: 'Email and password are mandatory.',
+      });
+      return;
+    }
+    try {
+      await signInWithEmailAndPassword(auth, value.email, value.password);
+    } catch (error) {
+      setValue({
+        ...value,
+        error: 'Error',
+      });
+    }
+  }
+
+  function Toast() {
+    ToastAndroid.show('Test', ToastAndroid.SHORT);
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.viewCard}>
-        <Pressable style={styles.Button}>
-          <Text
-            style={{color: COLORS.white, fontSize: SIZES.h2}}
-            onPress={() => navigation.navigate('PaymentInfoScreen')}>
-            Sign Up
-          </Text>
-        </Pressable>
+        <TextInput
+          style={styles.InputContainer}
+          placeholder="Email"
+          value={value.email}
+          maxLength={40}
+          onChangeText={text => setValue({...value, email: text})}
+        />
+        <TextInput
+          style={styles.InputContainer}
+          maxLength={20}
+          placeholder="Password"
+          cursorColor={COLORS.black}
+          onChangeText={text => setValue({...value, password: text})}
+          secureTextEntry={true}
+        />
+        <TouchableOpacity
+          style={[styles.Button, {marginTop: 30}]}
+          onPress={signIn}>
+          <Text style={{color: COLORS.white, fontSize: SIZES.h2}}>Sign In</Text>
+        </TouchableOpacity>
+        <Text
+          style={{
+            color: COLORS.white,
+            fontSize: SIZES.h4,
+            alignSelf: 'flex-end',
+            marginEnd: 25,
+            marginTop: 10,
+          }}
+          onPress={() => navigation.navigate('SignUp')}
+          selectable={true}
+          selectionColor={COLORS.accent}>
+          Don't have an account?
+        </Text>
       </View>
     </View>
   );
@@ -30,9 +93,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   viewCard: {
-    flexDirection: 'row',
-    justifyContent: 'center',
+    flexDirection: 'column',
     alignItems: 'center',
+    justifyContent: 'center',
     borderColor: COLORS.accent,
     height: 300,
     width: 300,
@@ -43,11 +106,18 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.bg_grad_from,
     borderRadius: 20,
     height: 50,
-    width: 150,
+    width: 250,
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 3,
     borderColor: COLORS.accent,
+  },
+  InputContainer: {
+    backgroundColor: COLORS.white,
+    width: '90%',
+    borderRadius: 20,
+    marginTop: 10,
+    color: COLORS.black,
   },
 });
 

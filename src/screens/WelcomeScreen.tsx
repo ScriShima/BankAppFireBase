@@ -12,7 +12,7 @@ import {BlurView} from '@react-native-community/blur';
 import Header from '../components/WelcomeScreen/Header';
 import Body from '../components/WelcomeScreen/Body';
 
-export const WelcomeScreen = () => {
+const WelcomeScreen = ({navigation}: {navigation: any}) => {
   return (
     <LinearGradient
       style={{height: '100%'}}
@@ -23,7 +23,7 @@ export const WelcomeScreen = () => {
       // angleCenter={{x: 0.5, y: 0.5}}
       colors={[COLORS.bg_grad_from, COLORS.bg_grad_to]}>
       <Header />
-      <Body />
+      <Body navigation={navigation} />
     </LinearGradient>
   );
 };

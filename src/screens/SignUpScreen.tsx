@@ -1,6 +1,6 @@
 import React from 'react';
-import {View, Text} from 'react-native';
-import {COLORS} from '../common/Constants';
+import {View, Text, TouchableOpacity} from 'react-native';
+import {COLORS, SIZES} from '../common/Constants';
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -10,10 +10,29 @@ import {initializeApp} from 'firebase/app';
 
 const auth = getAuth();
 
-const SignUp = () => {
+const SignUp = ({navigation}: {navigation: any}) => {
   return (
-    <View style={{flex: 1, backgroundColor: COLORS.accent}}>
-      <Text>Test</Text>
+    <View
+      style={{
+        flex: 1,
+        backgroundColor: COLORS.white,
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}>
+      <Text style={{fontSize: SIZES.h1}}>Регистрации нету</Text>
+      <TouchableOpacity
+        style={{
+          backgroundColor: COLORS.black,
+          width: 100,
+          height: 30,
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+        onPress={() => {
+          navigation.navigate('Welcome');
+        }}>
+        <Text style={{color: COLORS.white}}>Back</Text>
+      </TouchableOpacity>
     </View>
   );
 };

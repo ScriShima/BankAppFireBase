@@ -4,6 +4,8 @@ import PaymentInfoScreen from '../screens/PaymentInfoScreen';
 import WelcomeScreen from '../screens/WelcomeScreen';
 import Tab from '../navigation/Tab';
 import TabBottom from '../navigation/Tab';
+import SignUpScreen from '../screens/SignUpScreen';
+
 const adjust = (color: string, amount: number) => {
   return (
     '#' +
@@ -19,14 +21,3 @@ const adjust = (color: string, amount: number) => {
 };
 
 export default adjust;
-
-export const ScreensOptions = [
-  {
-    name: 'Welcome',
-    component: WelcomeScreen,
-  },
-  {
-    name: 'PaymentInfoScreen',
-    component: PaymentInfoScreen,
-  },
-];
